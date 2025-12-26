@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Ali Khatami</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome untuk ikon -->
@@ -958,6 +959,68 @@
         .konten-section {
             padding: 100px 0 80px; /* DARI 150px 0 100px */
         }
+
+        /* CSS untuk mempercantik tampilan */
+        .profile-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .profile-link {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-link:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ddd;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .profile-link:hover .profile-circle {
+            border-color: #4a6cf7;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .profile-description {
+            margin-top: -18px;
+            font-size: 14px;
+            color: #666;
+            max-width: 200px;
+            line-height: 1.4;
+        }
+
+        .konten-profiles {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
         
         .konten-profiles {
             display: grid;
@@ -1404,7 +1467,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 text-center order-lg-2 order-1 mb-4 mb-lg-0">
-                    <img src="images/profile.jpg" alt="Foto Profil" class="profile-img">
+                    <img src="images/profile.png" alt="Foto Profil" class="profile-img">
                 </div>
             </div>
         </div>
@@ -1521,34 +1584,34 @@
                 <!-- PROJECT 1 -->
                 <div class="project-card-home fade-in">
                     <div class="project-img-container-home" data-project-id="1">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Website" class="project-img-home">
+                        <img src="images/Projects/devmate.png" alt="E-commerce Website" class="project-img-home">
                     </div>
                     <div class="project-body-home">
-                        <h4>E-commerce Platform</h4>
-                        <p>Platform e-commerce lengkap dengan sistem pembayaran, manajemen produk, dan dashboard admin. Dibangun dengan teknologi modern untuk performa optimal.</p>
-                        <p class="project-tech-home">Tech: React, Node.js, MongoDB, Stripe API</p>
+                        <h4>Devmate</h4>
+                        <p>Web belajar coding, tersedia berbagai materi seperti Front-End, Back End, dan lainnya.</p>
+                        <p class="project-tech-home">Tech: HTML, CSS, Javascript, Bootstrap</p>
                     </div>
                 </div>
                 <!-- PROJECT 2 -->
                 <div class="project-card-home fade-in">
                     <div class="project-img-container-home" data-project-id="2">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Task Management App" class="project-img-home">
+                        <img src="images/Projects/aniplus.png" alt="Task Management App" class="project-img-home">
                     </div>
                     <div class="project-body-home">
-                        <h4>Task Management App</h4>
-                        <p>Aplikasi manajemen tugas kolaboratif dengan fitur real-time updates, prioritas, dan notifikasi. Memudahkan tim dalam mengelola proyek secara efisien.</p>
-                        <p class="project-tech-home">Tech: Vue.js, Firebase, PWA</p>
+                        <h4>Aniplus</h4>
+                        <p>Web download anime, tersedia berbagai anime mulai dari anime lama hingga anime terbaru.</p>
+                        <p class="project-tech-home">Tech: HTML, CSS, PHP, MySQL, Laravel</p>
                     </div>
                 </div>
                 <!-- PROJECT 3 -->
                 <div class="project-card-home fade-in">
                     <div class="project-img-container-home" data-project-id="3">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Health & Fitness App" class="project-img-home">
+                        <img src="images/Projects/ghibli.png" alt="Health & Fitness App" class="project-img-home">
                     </div>
                     <div class="project-body-home">
-                        <h4>Health & Fitness Tracker</h4>
-                        <p>Aplikasi pelacak kesehatan dan kebugaran dengan integrasi wearable devices dan analisis data. Membantu pengguna mencapai tujuan kesehatan mereka.</p>
-                        <p class="project-tech-home">Tech: React Native, GraphQL, AWS</p>
+                        <h4>Ghibli</h4>
+                        <p>Website yang ngebahas tentang bebeberapa anime Ghibli ternama seperti Spirited Away dan sebagainya.</p>
+                        <p class="project-tech-home">Tech: HTML, CSS, Javascript, Bootstrap</p>
                     </div>
                 </div>
             </div>
@@ -1559,36 +1622,45 @@
     </section>
 
     <!-- Konten Section (Pengganti Video) -->
-    <section id="konten" class="section konten-section">
-        <div class="container">
-            <h2 class="section-main-title">My Contents</h2><br><br>
-            <div class="konten-profiles">
-                <!-- LinkedIn Profile -->
-                <div class="profile-item">
+<section id="konten" class="section konten-section">
+    <div class="container">
+        <h2 class="section-main-title">My Contents</h2><br><br>
+        <div class="konten-profiles">
+            <!-- LinkedIn Profile -->
+            <div class="profile-item">
+                <a href="https://www.tiktok.com/@cartoonesia__" target="_blank" rel="noopener noreferrer" class="profile-link">
                     <div class="profile-circle">
-                        <img src="images/contents/Cartoonesia.jpg" alt="LinkedIn Profile" class="profile-image">
+                        <img src="images/contents/Cartoonesia.png" alt="LinkedIn Profile" class="profile-image">
                     </div>
-                    <div class="profile-label">Cartoonesia</div>
-                </div>
-                
-                <!-- GitHub Profile -->
-                <div class="profile-item">
+                </a>
+                <div class="profile-label">Cartoonesia</div>
+                <div class="profile-description">Konten yang ngebahas seputar anime, game, dan cartoon</div>
+            </div>
+            
+            <!-- GitHub Profile -->
+            <div class="profile-item">
+                <a href="https://devmateid.vercel.app" target="_blank" rel="noopener noreferrer" class="profile-link">
                     <div class="profile-circle">
                         <img src="images/contents/DevMate.jpg" alt="GitHub Profile" class="profile-image">
                     </div>
-                    <div class="profile-label">DevMate</div>
-                </div>
-                
-                <!-- Instagram Profile -->
-                <div class="profile-item">
+                </a>
+                <div class="profile-label">DevMate</div>
+                <div class="profile-description">Platform belajar pemrograman dengan desain yang menarik</div>
+            </div>
+            
+            <!-- Instagram Profile -->
+            <div class="profile-item">
+                <a href="https://www.tiktok.com/@srvnt07" target="_blank" rel="noopener noreferrer" class="profile-link">
                     <div class="profile-circle">
                         <img src="images/contents/ForcaBarca.jpeg" alt="Instagram Profile" class="profile-image">
                     </div>
-                    <div class="profile-label">ForcaBarca</div>
-                </div>
+                </a>
+                <div class="profile-label">ForcaBarca</div>
+                <div class="profile-description">Konten yang mewadahi segala hal seputar Fc Barcelona</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1605,12 +1677,9 @@
                 <div class="col-md-6 mb-4">
                     <h3>Social Media</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/ali-khatami-a13b48220/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/servant26" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/srvant07/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -1772,98 +1841,98 @@
         const projectsData = [
             { 
                 id: 1, 
-                title: "E-commerce Platform", 
-                desc: "Platform e-commerce lengkap dengan sistem pembayaran, manajemen produk, dan dashboard admin.", 
-                img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
+                title: "Devmate", 
+                desc: "Web belajar coding, tersedia berbagai materi seperti Front-End, Back End, dan lainnya.", 
+                img: "images/Projects/devmate.png", 
                 tech: "React, Node.js, MongoDB, Stripe API",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/devmate.png",
+                    "images/Projects/devmate2.png",
+                    "images/Projects/devmate3.png"
                 ]
             },
             { 
                 id: 2, 
-                title: "Task Management App", 
-                desc: "Aplikasi manajemen tugas kolaboratif dengan fitur real-time updates, prioritas, dan notifikasi.", 
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "Vue.js, Firebase, PWA",
+                title: "Aniplus", 
+                desc: "Web download anime, tersedia berbagai anime mulai dari anime lama hingga anime terbaru.",
+                img: "images/Projects/aniplus.png", 
+                tech: "HTML, CSS, PHP, MySQL, Laravel",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/aniplus.png",
+                    "images/Projects/aniplus2.png",
+                    "images/Projects/aniplus3.png"
                 ]
             },
             { 
                 id: 3, 
-                title: "Health & Fitness Tracker", 
-                desc: "Aplikasi pelacak kesehatan dan kebugaran dengan integrasi wearable devices dan analisis data.", 
-                img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "React Native, GraphQL, AWS",
+                title: "Ghibli", 
+                desc: "Website yang ngebahas tentang bebeberapa anime Ghibli ternama seperti Spirited Away dan sebagainya.", 
+                img: "images/Projects/ghibli.png", 
+                tech: "HTML, CSS, Javascript, Bootstrap",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/ghibli.png",
+                    "images/Projects/ghibli2.png",
+                    "images/Projects/ghibli3.png"
                 ]
             },
             { 
                 id: 4, 
-                title: "Social Media Dashboard", 
-                desc: "Dashboard analitik untuk media sosial dengan visualisasi data dan laporan performa.", 
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "React, D3.js, Express, MySQL",
+                title: "Klik Reservasi", 
+                desc: "Web reservasi aula dan kunjungan perpustakaan studi kasus Dinas Perpustakaan dan Kearsipan Samarinda.", 
+                img: "images/Projects/klikreservasi.png", 
+                tech: "HTML, CSS, Javascript, Bootstrap, PHP, MySQL, Laravel",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/klikreservasi.png",
+                    "images/Projects/klikreservasi2.png",
+                    "images/Projects/klikreservasi3.png"
                 ]
             },
             { 
                 id: 5, 
-                title: "Food Delivery App", 
-                desc: "Aplikasi pesan antar makanan dengan sistem rekomendasi dan tracking real-time.", 
-                img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "Flutter, Node.js, MongoDB",
+                title: "Aspirasi Desa Lolo", 
+                desc: "Web yang digunakan sebagai wadah aspirasi Desa Lolo, setiap warga dapat menyampaikan aspirasinya ke dalam website dan mendapatkan tanggapan dari admin.", 
+                img: "images/Projects/aspirasilolo.png", 
+                tech: "HTML, CSS, Javascript, PHP, MySQL, Laravel",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/aspirasilolo.png",
+                    "images/Projects/aspirasilolo2.png",
+                    "images/Projects/aspirasilolo3.png"
                 ]
             },
             { 
                 id: 6, 
-                title: "Learning Management System", 
-                desc: "Sistem manajemen pembelajaran online dengan video conference dan assessment.", 
-                img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "Laravel, Vue.js, WebRTC",
+                title: "Docta ID", 
+                desc: "Web konsultasi kesehatan menggunakan API dari AI Gemini guna menjawab segala bentuk pertanyaan seputar masalah kesehatan.", 
+                img: "images/Projects/docta.png", 
+                tech: "HTML, CSS, Javascript, Bootstrap",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/docta.png",
+                    "images/Projects/docta2.png",
+                    "images/Projects/docta3.png"
                 ]
             },
             { 
                 id: 7, 
-                title: "Travel Booking Platform", 
-                desc: "Platform pemesanan tiket dan akomodasi perjalanan dengan sistem rekomendasi cerdas.", 
-                img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "Next.js, NestJS, PostgreSQL",
+                title: "Komunitas Motlis", 
+                desc: "Website seputar komunitas motor listrik, dibuat dalam rangka mengikuti ujian BNSP.", 
+                img: "images/Projects/motlis.png", 
+                tech: "HTML, CSS, Bootstrap",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/motlis.png",
+                    "images/Projects/motlis2.png",
+                    "images/Projects/motlis3.png"
                 ]
             },
             { 
                 id: 8, 
-                title: "Finance Tracker App", 
-                desc: "Aplikasi pelacak keuangan pribadi dengan analisis pengeluaran dan perencanaan anggaran.", 
-                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                tech: "React Native, Express, SQLite",
+                title: "Website Wisata Samarinda", 
+                desc: "Website yang memberikan seluruh informasi wisata seputar Samarinda mulai dari tempat liburan, kuliner, hotel, dan sebagainya.", 
+                img: "images/Projects/wisatasamarinda.png", 
+                tech: "HTML, CSS, Javascript, Bootstrap",
                 previewImages: [
-                    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    "images/Projects/wisatasamarinda.png",
+                    "images/Projects/wisatasamarinda2.png",
+                    "images/Projects/wisatasamarinda3.png"
                 ]
             }
         ];
@@ -1876,7 +1945,7 @@
         
         // Variabel untuk pagination project modal
         let currentProjectsPage = 1;
-        let projectsPerPage = 6;
+        let projectsPerPage = 4;
         
         // Variabel untuk project preview
         let currentPreviewProject = null;
