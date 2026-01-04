@@ -104,7 +104,7 @@
         
         /* Cover Section */
         .cover-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #16213e 100%);
+            background: linear-gradient(135deg, #0f0f1f 0%, #0a0a17 100%);
             color: white;
             min-height: 100vh;
             display: flex;
@@ -831,12 +831,13 @@
             padding: 100px 0 80px;
         }
 
-        /* Home Projects */
+        /* Home Projects - FLEXIBLE HEIGHT */
         .projects-grid-home {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 35px;
             margin-bottom: 40px;
+            align-items: stretch; /* Ini penting untuk membuat semua kartu memiliki tinggi yang sama dalam satu baris */
         }
 
         .project-card-home {
@@ -845,11 +846,12 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            height: 440px;
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 0;
+            height: auto; /* Biarkan tinggi mengikuti konten */
+            min-height: auto; /* Hapus min-height tetap */
         }
 
         .project-card-home:hover {
@@ -880,12 +882,11 @@
         }
 
         .project-body-home {
-            padding: 1.2rem;
-            height: 100%;
+            padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            padding-bottom: 3.2rem !important;
+            /* Hapus semua properti height dan padding-bottom yang terlalu besar */
         }
 
         .project-body-home h4 {
@@ -897,10 +898,9 @@
 
         .project-body-home p {
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem !important;
+            margin-bottom: 1.5rem;
             line-height: 1.5;
             flex-grow: 1;
-            overflow: hidden;
             font-size: 0.95rem;
         }
 
@@ -908,10 +908,10 @@
             color: var(--secondary-color);
             font-size: 0.85rem;
             margin-top: auto;
-            padding-top: 1.2rem;
-            padding-bottom: 140px !important;
+            padding-top: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             line-height: 1.4;
+            /* Hapus padding-bottom yang terlalu besar */
         }
                 
         .project-more-btn {
@@ -934,12 +934,13 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
         
-        /* Modal Projects */
+        /* Modal Projects - FLEXIBLE HEIGHT */
         .projects-grid-modal {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 35px;
             margin-bottom: 30px;
+            align-items: stretch; /* Ini penting untuk membuat semua kartu memiliki tinggi yang sama dalam satu baris */
         }
         
         .project-card-modal {
@@ -948,10 +949,11 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            height: 450px;
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            height: auto; /* Biarkan tinggi mengikuti konten */
+            min-height: auto; /* Hapus min-height tetap */
         }
         
         .project-card-modal:hover {
@@ -984,7 +986,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            padding-bottom: 2rem !important;
+            /* Hapus semua properti height dan padding-bottom yang terlalu besar */
         }
         
         .project-body-modal h4 {
@@ -999,7 +1001,6 @@
             margin-bottom: 1rem;
             line-height: 1.6;
             flex-grow: 1;
-            overflow: hidden;
         }
         
         .project-tech-modal {
@@ -1008,8 +1009,8 @@
             margin-top: auto;
             padding-top: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 5px;
             line-height: 1.4;
+            /* Hapus padding-bottom yang terlalu besar */
         }
         
         .projects-pagination-container {
@@ -1029,7 +1030,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
-            gap: 30px;
+            gap: 80px;
             overflow-x: auto;
             padding: 20px 0;
             scrollbar-width: thin;
@@ -1051,7 +1052,7 @@
 
         .profile-item {
             flex: 0 0 auto;
-            width: 280px;
+            width: 270px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1418,31 +1419,27 @@
                 }
             }
             
-            /* REVISI PROJECTS DI TABLET PORTRAIT */
+            /* REVISI PROJECTS DI TABLET PORTRAIT - FLEXIBLE HEIGHT */
             .projects-grid-home {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
                 margin-bottom: 40px;
-                padding: 10px 5px;
-                scroll-snap-type: x mandatory;
             }
             
             .project-card-home {
-                flex: 0 0 auto;
-                width: 85%;
-                height: 400px;
-                scroll-snap-align: start;
+                height: auto; /* Biarkan tinggi mengikuti konten */
                 min-height: auto;
             }
             
-            .project-body-home {
-                padding-bottom: 2.8rem !important;
+            /* REVISI MODAL PROJECTS DI TABLET PORTRAIT */
+            .projects-grid-modal {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
             
-            .project-tech-home {
-                padding-bottom: 120px !important;
+            .project-card-modal {
+                height: auto; /* Biarkan tinggi mengikuti konten */
             }
             
             .certificates-grid {
@@ -1630,28 +1627,21 @@
                 padding: 60px 0 40px;
             }
             
-            /* REVISI PROJECTS DI SMARTPHONE */
+            /* REVISI PROJECTS DI SMARTPHONE - FLEXIBLE HEIGHT */
             .projects-grid-home {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                gap: 15px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 25px;
                 margin-bottom: 30px;
-                padding: 10px 5px;
-                scroll-snap-type: x mandatory;
             }
             
             .project-card-home {
-                flex: 0 0 auto;
-                width: 85%;
-                height: 410px;
-                scroll-snap-align: start;
+                height: auto; /* Biarkan tinggi mengikuti konten */
                 min-height: auto;
             }
             
             .project-body-home {
-                padding: 1rem;
-                padding-bottom: 2.2rem !important;
+                padding: 1.2rem;
             }
             
             .project-body-home h4 {
@@ -1664,7 +1654,68 @@
             
             .project-tech-home {
                 font-size: 0.8rem;
-                padding-bottom: 100px !important;
+            }
+            
+            /* REVISI MODAL PROJECTS DI SMARTPHONE - 1 PROJEK PER BARIS */
+            .projects-grid-modal {
+                grid-template-columns: 1fr !important;
+                gap: 25px;
+            }
+            
+            .project-card-modal {
+                height: auto; /* Biarkan tinggi mengikuti konten */
+            }
+            
+            .project-img-container-modal {
+                height: 180px;
+            }
+            
+            .project-body-modal {
+                padding: 1.2rem;
+            }
+            
+            .project-body-modal h4 {
+                font-size: 1.2rem;
+                min-height: 2.8rem;
+            }
+            
+            .project-body-modal p {
+                font-size: 0.9rem;
+            }
+            
+            .project-tech-modal {
+                font-size: 0.85rem;
+            }
+            
+            /* REVISI KONTEN SECTION DI SMARTPHONE - 3 GAMBAR SEBARIS */
+            .konten-profiles {
+                gap: 15px;
+                padding: 8px 0;
+                justify-content: space-between;
+                overflow-x: hidden;
+                flex-wrap: wrap;
+            }
+            
+            .profile-item {
+                width: calc(33.333% - 10px);
+                flex: 0 0 auto;
+            }
+            
+            .profile-circle {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .profile-label {
+                font-size: 0.85rem;
+                margin-top: 8px;
+                margin-bottom: 4px;
+            }
+            
+            .profile-description {
+                font-size: 0.4rem;
+                max-width: 100%;
+                line-height: 1.2;
             }
             
             .certificates-grid {
@@ -1721,32 +1772,6 @@
             .project-preview-counter {
                 bottom: -30px;
                 font-size: 0.8rem;
-            }
-            
-            /* REVISI KONTEN SECTION DI SMARTPHONE */
-            .konten-profiles {
-                gap: 12px;
-                padding: 8px 5px;
-                justify-content: flex-start;
-            }
-            
-            .profile-item {
-                width: 150px; /* Diperkecil dari 180px */
-            }
-            
-            .profile-circle {
-                width: 140px; /* Diperkecil dari 140px */
-                height: 140px; /* Diperkecil dari 140px */
-            }
-            
-            .profile-label {
-                font-size: 0.9rem;
-                margin-top: 10px;
-            }
-            
-            .profile-description {
-                font-size: 0.75rem;
-                max-width: 140px;
             }
             
             .filter-buttons {
@@ -1856,37 +1881,46 @@
             
             /* REVISI PROJECTS DI LAYAR SANGAT KECIL */
             .project-card-home {
-                height: 360px;
-                width: 90%;
+                height: auto; /* Biarkan tinggi mengikuti konten */
             }
             
             .project-body-home {
-                padding: 0.9rem;
-                padding-bottom: 2rem !important;
+                padding: 1rem;
             }
             
             .project-tech-home {
-                padding-bottom: 90px !important;
                 font-size: 0.75rem;
             }
             
-            /* REVISI KONTEN SECTION DI LAYAR SANGAT KECIL */
+            /* REVISI MODAL PROJECTS DI LAYAR SANGAT KECIL */
+            .project-card-modal {
+                height: auto; /* Biarkan tinggi mengikuti konten */
+            }
+            
+            /* REVISI KONTEN SECTION DI LAYAR SANGAT KECIL - 3 GAMBAR SEBARIS */
+            .konten-profiles {
+                gap: 10px;
+                padding: 5px 0;
+            }
+            
             .profile-item {
-                width: 130px; /* Diperkecil lagi */
+                width: calc(33.333% - 7px);
             }
             
             .profile-circle {
-                width: 90px; /* Diperkecil lagi */
-                height: 90px; /* Diperkecil lagi */
+                width: 75px;
+                height: 75px;
             }
             
             .profile-label {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
+                margin-top: 6px;
+                margin-bottom: 3px;
             }
             
             .profile-description {
-                font-size: 0.7rem;
-                max-width: 120px;
+                font-size: 0.65rem;
+                line-height: 1.1;
             }
             
             .certificate-modal-item {
@@ -2091,7 +2125,7 @@
     </div>
 
     <!-- Projects Section - HOME PAGE -->
-    <section id="projects" class="section projects-section">
+    <section id="projects" class="section projects-section certificates-section">
         <div class="container">
             <h2 class="section-main-title">Projects</h2><br><br>
             <div class="projects-grid-home">
@@ -2204,34 +2238,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">
-                            All <span class="badge-count">50</span>
-                        </button>
-                        <button class="filter-btn" data-filter="programming">
-                            Programming <span class="badge-count">18</span>
-                        </button>
-                        <button class="filter-btn" data-filter="competence">
-                            BNSP/LSP <span class="badge-count">18</span>
-                        </button>
-                        <button class="filter-btn" data-filter="english">
-                            English <span class="badge-count">3</span>
-                        </button>
-                        <button class="filter-btn" data-filter="microsoft">
-                            Microsoft <span class="badge-count">10</span>
-                        </button>
-                        <button class="filter-btn" data-filter="design">
-                            Design <span class="badge-count">7</span>
-                        </button>
-                        <button class="filter-btn" data-filter="editing">
-                            Editing <span class="badge-count">5</span>
-                        </button>
-                        <button class="filter-btn" data-filter="msib">
-                            MSIB <span class="badge-count">3</span>
-                        </button>
-                        <button class="filter-btn" data-filter="organization">
-                            Organization <span class="badge-count">4</span>
-                        </button>
+                    <div class="filter-buttons" id="filterButtonsContainer">
+                        <!-- Filter buttons akan ditambahkan via JavaScript -->
                     </div>
                     <div class="certificates-grid" id="allCertificates">
                         <!-- All certificates will be added via JS -->
@@ -2475,6 +2483,61 @@
         let previewModal = document.getElementById('previewModal');
         let previewImage = document.getElementById('previewImage');
         let previewImageContainer = document.querySelector('.scrollable-image-container');
+        
+        // Fungsi untuk menghitung jumlah sertifikat per kategori secara otomatis
+        function countCertificatesByCategory() {
+            const counts = {};
+            certificatesData.forEach(cert => {
+                if (!counts[cert.category]) {
+                    counts[cert.category] = 0;
+                }
+                counts[cert.category]++;
+            });
+            return counts;
+        }
+        
+        // Fungsi untuk membuat filter buttons dengan jumlah sertifikat yang dihitung otomatis
+        function createFilterButtons() {
+            const counts = countCertificatesByCategory();
+            const filterButtonsContainer = document.getElementById('filterButtonsContainer');
+            
+            // Urutan kategori yang ingin ditampilkan
+            const categoryOrder = [
+                { key: 'all', label: 'All' },
+                { key: 'programming', label: 'Programming' },
+                { key: 'competence', label: 'BNSP/LSP' },
+                { key: 'english', label: 'English' },
+                { key: 'microsoft', label: 'Microsoft' },
+                { key: 'design', label: 'Design' },
+                { key: 'editing', label: 'Editing' },
+                { key: 'msib', label: 'MSIB' },
+                { key: 'organization', label: 'Organization' }
+            ];
+            
+            // Hitung total semua sertifikat
+            const totalCount = certificatesData.length;
+            
+            filterButtonsContainer.innerHTML = '';
+            
+            categoryOrder.forEach(category => {
+                const button = document.createElement('button');
+                button.className = `filter-btn ${category.key === 'all' ? 'active' : ''}`;
+                button.setAttribute('data-filter', category.key);
+                
+                let count;
+                if (category.key === 'all') {
+                    count = totalCount;
+                } else {
+                    count = counts[category.key] || 0;
+                }
+                
+                button.innerHTML = `
+                    ${category.label} <span class="badge-count">${count}</span>
+                `;
+                
+                filterButtonsContainer.appendChild(button);
+            });
+        }
         
         // Fungsi untuk mendapatkan path gambar
         function getImagePath(basePath) {
@@ -2743,6 +2806,7 @@
         
         // Fungsi untuk menginisialisasi website
         function initWebsite() {
+            createFilterButtons();
             initCertificates();
             initCertificateFilter();
             renderProjectsModal();
@@ -2890,6 +2954,31 @@
         
         // Fungsi untuk smooth scroll dan animasi
         function initScrollAnimations() {
+            // Navbar active link berdasarkan scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            function updateActiveNavLink() {
+                let scrollY = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNavLink);
+            
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -2899,6 +2988,10 @@
                     
                     const targetElement = document.querySelector(targetId);
                     if(targetElement) {
+                        // Update active nav link
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        this.classList.add('active');
+                        
                         window.scrollTo({
                             top: targetElement.offsetTop - 70,
                             behavior: 'smooth'
@@ -2932,7 +3025,13 @@
                     navbar.style.backgroundColor = 'rgba(26, 26, 46, 0.95)';
                     navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
                 }
+                
+                // Update active nav link saat scroll
+                updateActiveNavLink();
             });
+            
+            // Set active nav link awal
+            navLinks[0].classList.add('active');
         }
         
         // Panggil fungsi inisialisasi saat halaman dimuat
