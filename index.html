@@ -102,7 +102,7 @@
             color: var(--secondary-color) !important;
         }
         
-        /* Cover Section */
+        /* Cover Section - TETAP SEPERTI SEMULA UNTUK DESKTOP */
         .cover-section {
             background: linear-gradient(135deg, #0f0f1f 0%, #0a0a17 100%);
             color: white;
@@ -1263,7 +1263,9 @@
             }
         }
         
-        /* Untuk Tablet Landscape (768px - 991px) */
+        /* =============================== */
+        /* KHUSUS UNTUK TABLET LANDSCAPE (768px - 991px) */
+        /* =============================== */
         @media (max-width: 991px) and (min-width: 768px) {
             .container {
                 max-width: 720px;
@@ -1273,11 +1275,42 @@
                 font-size: 2.8rem;
             }
             
+            /* ============ COVER SECTION UNTUK TABLET ============ */
+            /* RATA TENGAH SEPERTI MODE SMARTPHONE */
+            .cover-section {
+                padding-top: 100px;
+                text-align: center;
+            }
+            
+            .typing-container {
+                text-align: center;
+                width: 100%;
+            }
+            
             .profile-img {
                 width: 260px;
                 height: 260px;
+                margin: 0 auto 30px !important; /* Override margin-left dari desktop */
+                display: block;
             }
             
+            .cover-subtitle {
+                text-align: center;
+            }
+            
+            .portfolio-description {
+                margin: 0 auto 1.5rem;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .getting-started-btn {
+                margin: 0 auto;
+                display: block;
+                width: fit-content;
+            }
+            
+            /* ============ SECTION TITLE ============ */
             .section-main-title {
                 font-size: 2.2rem;
             }
@@ -1286,6 +1319,7 @@
                 font-size: 2rem;
             }
             
+            /* ============ NAVBAR ============ */
             .navbar-nav {
                 margin-right: 0;
             }
@@ -1294,20 +1328,123 @@
                 margin: 0 8px;
             }
             
+            /* ============ PROJECTS HOME UNTUK TABLET ============ */
+            /* SEBARIS BISA DIGESER */
             .projects-grid-home {
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
                 gap: 25px;
+                padding: 20px 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                margin-bottom: 30px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar {
+                height: 8px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-thumb {
+                background: var(--secondary-color);
+                border-radius: 4px;
+            }
+            
+            .project-card-home {
+                flex: 0 0 calc(50% - 13px);
+                scroll-snap-align: start;
+                min-width: 280px;
+            }
+            
+            /* ============ MODAL PROJECTS UNTUK TABLET ============ */
+            /* MODAL LEBIH LEBAR DAN 2 PROJEK PER BARIS */
+            .modal-dialog.modal-xl {
+                max-width: 95% !important;
+                margin: 1.75rem auto;
             }
             
             .projects-grid-modal {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 30px;
             }
             
+            .project-img-container-modal {
+                height: 180px;
+            }
+            
+            .project-body-modal {
+                padding: 1.2rem;
+            }
+            
+            .project-body-modal h4 {
+                font-size: 1.2rem;
+                min-height: 2.8rem;
+            }
+            
+            .project-body-modal p {
+                font-size: 0.95rem;
+            }
+            
+            /* ============ CERTIFICATES ============ */
             .certificates-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            .certificates-wrapper {
+                padding: 0 20px;
+            }
+            
+            .certificate-item {
+                width: 250px;
+                height: 180px;
+                margin: 0 10px;
+            }
+            
+            @keyframes scroll-certificates {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-250px * 5 - 10px * 5));
+                }
+            }
+            
+            /* ============ KONTEN SECTION UNTUK TABLET ============ */
+            /* SEBARIS TANPA GESER */
+            .konten-profiles {
+                gap: 30px;
+                justify-content: space-between;
+                overflow-x: visible;
+                flex-wrap: nowrap;
+                padding: 20px 0;
+            }
+            
+            .profile-item {
+                width: 200px;
+                flex: 1;
+            }
+            
+            .profile-circle {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .profile-label {
+                font-size: 1.1rem;
+            }
+            
+            .profile-description {
+                font-size: 0.85rem;
+                max-width: 180px;
+            }
+            
+            /* ============ MODAL PREVIEW ============ */
             .preview-img-container {
                 width: 85%;
                 max-width: 750px;
@@ -1330,22 +1467,6 @@
             .project-preview-next {
                 right: -20px;
             }
-            
-            .konten-profiles {
-                gap: 20px;
-                justify-content: flex-start;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-            
-            .profile-item {
-                width: 220px;
-            }
-            
-            .profile-circle {
-                width: 170px;
-                height: 170px;
-            }
         }
         
         /* Untuk Tablet Portrait (576px - 767px) */
@@ -1354,6 +1475,7 @@
                 max-width: 540px;
             }
             
+            /* ============ COVER SECTION UNTUK TABLET PORTRAIT ============ */
             .cover-section {
                 padding-top: 100px;
                 text-align: center;
@@ -1366,7 +1488,8 @@
             .profile-img {
                 width: 240px;
                 height: 240px;
-                margin: 0 auto 30px;
+                margin: 0 auto 30px !important;
+                display: block;
             }
             
             .portfolio-description {
@@ -1419,7 +1542,7 @@
                 }
             }
             
-            /* REVISI PROJECTS DI TABLET PORTRAIT - FLEXIBLE HEIGHT */
+            /* Projects Home untuk tablet portrait */
             .projects-grid-home {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -1428,18 +1551,36 @@
             }
             
             .project-card-home {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+                height: auto;
                 min-height: auto;
             }
             
-            /* REVISI MODAL PROJECTS DI TABLET PORTRAIT */
+            /* Modal Projects untuk tablet portrait - 2 PROJEK PER BARIS */
+            .modal-dialog.modal-xl {
+                max-width: 95% !important;
+                margin: 1.75rem auto;
+            }
+            
             .projects-grid-modal {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 20px;
             }
             
-            .project-card-modal {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+            .project-img-container-modal {
+                height: 170px;
+            }
+            
+            .project-body-modal {
+                padding: 1.1rem;
+            }
+            
+            .project-body-modal h4 {
+                font-size: 1.15rem;
+                min-height: 2.6rem;
+            }
+            
+            .project-body-modal p {
+                font-size: 0.9rem;
             }
             
             .certificates-grid {
@@ -1487,30 +1628,32 @@
                 right: 10px;
             }
             
+            /* Konten Section untuk tablet portrait - SEBARIS */
             .konten-profiles {
                 gap: 15px;
                 padding: 10px 0;
-                justify-content: flex-start;
-                padding-left: 15px;
-                padding-right: 15px;
+                justify-content: space-between;
+                overflow-x: visible;
+                flex-wrap: nowrap;
             }
             
             .profile-item {
-                width: 200px;
+                width: 180px;
+                flex: 1;
             }
             
             .profile-circle {
-                width: 160px;
-                height: 160px;
+                width: 140px;
+                height: 140px;
             }
             
             .profile-label {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .profile-description {
-                font-size: 0.85rem;
-                max-width: 200px;
+                font-size: 0.8rem;
+                max-width: 160px;
             }
             
             .filter-buttons {
@@ -1530,6 +1673,7 @@
                 padding-right: 15px;
             }
             
+            /* ============ COVER SECTION UNTUK SMARTPHONE ============ */
             .cover-section {
                 padding-top: 80px;
                 text-align: center;
@@ -1547,7 +1691,8 @@
             .profile-img {
                 width: 200px;
                 height: 200px;
-                margin: 0 auto 25px;
+                margin: 0 auto 25px !important;
+                display: block;
             }
             
             .portfolio-description {
@@ -1627,7 +1772,7 @@
                 padding: 60px 0 40px;
             }
             
-            /* REVISI PROJECTS DI SMARTPHONE - FLEXIBLE HEIGHT */
+            /* Projects Home untuk smartphone */
             .projects-grid-home {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -1636,7 +1781,7 @@
             }
             
             .project-card-home {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+                height: auto;
                 min-height: auto;
             }
             
@@ -1656,14 +1801,14 @@
                 font-size: 0.8rem;
             }
             
-            /* REVISI MODAL PROJECTS DI SMARTPHONE - 1 PROJEK PER BARIS */
+            /* Modal Projects untuk smartphone */
             .projects-grid-modal {
                 grid-template-columns: 1fr !important;
                 gap: 25px;
             }
             
             .project-card-modal {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+                height: auto;
             }
             
             .project-img-container-modal {
@@ -1687,7 +1832,7 @@
                 font-size: 0.85rem;
             }
             
-            /* REVISI KONTEN SECTION DI SMARTPHONE - 3 GAMBAR SEBARIS */
+            /* Konten Section untuk smartphone */
             .konten-profiles {
                 gap: 15px;
                 padding: 8px 0;
@@ -1853,6 +1998,7 @@
             .profile-img {
                 width: 180px;
                 height: 180px;
+                margin: 0 auto 25px !important;
             }
             
             .skill-item {
@@ -1879,9 +2025,9 @@
                 }
             }
             
-            /* REVISI PROJECTS DI LAYAR SANGAT KECIL */
+            /* Projects Home untuk layar sangat kecil */
             .project-card-home {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+                height: auto;
             }
             
             .project-body-home {
@@ -1892,12 +2038,12 @@
                 font-size: 0.75rem;
             }
             
-            /* REVISI MODAL PROJECTS DI LAYAR SANGAT KECIL */
+            /* Modal Projects untuk layar sangat kecil */
             .project-card-modal {
-                height: auto; /* Biarkan tinggi mengikuti konten */
+                height: auto;
             }
             
-            /* REVISI KONTEN SECTION DI LAYAR SANGAT KECIL - 3 GAMBAR SEBARIS */
+            /* Konten Section untuk layar sangat kecil */
             .konten-profiles {
                 gap: 10px;
                 padding: 5px 0;
@@ -2016,7 +2162,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 text-center order-lg-2 order-1 mb-4 mb-lg-0">
-                    <img src="images/profile.png" alt="Foto Profil" class="profile-img">
+                    <img src="images/profile.jpg" alt="Foto Profil" class="profile-img">
                 </div>
             </div>
         </div>
