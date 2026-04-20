@@ -692,12 +692,16 @@
             filter: invert(1) grayscale(100%) brightness(200%);
         }
         
+        /* ============ PERUBAHAN UTAMA: FILTER BUTTONS 8 PER BARIS & RATA TENGAH ============ */
         .filter-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .filter-btn {
@@ -710,6 +714,18 @@
             transition: var(--transition);
             font-size: 0.95rem;
             position: relative;
+            flex: 0 0 auto;
+        }
+        
+        /* Desktop: minimal 8 per baris dengan lebar yang pas */
+        @media (min-width: 992px) {
+            .filter-buttons {
+                max-width: 90%;
+            }
+            .filter-btn {
+                flex: 0 0 auto;
+                min-width: 100px;
+            }
         }
         
         .filter-btn.active, .filter-btn:hover {
@@ -838,7 +854,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 35px;
             margin-bottom: 40px;
-            align-items: stretch; /* Ini penting untuk membuat semua kartu memiliki tinggi yang sama dalam satu baris */
+            align-items: stretch;
         }
 
         .project-card-home {
@@ -851,8 +867,7 @@
             flex-direction: column;
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 0;
-            height: auto; /* Biarkan tinggi mengikuti konten */
-            min-height: auto; /* Hapus min-height tetap */
+            height: auto;
         }
 
         .project-card-home:hover {
@@ -887,7 +902,6 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            /* Hapus semua properti height dan padding-bottom yang terlalu besar */
         }
 
         .project-body-home h4 {
@@ -912,7 +926,6 @@
             padding-top: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             line-height: 1.4;
-            /* Hapus padding-bottom yang terlalu besar */
         }
                 
         .project-more-btn {
@@ -941,7 +954,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 35px;
             margin-bottom: 30px;
-            align-items: stretch; /* Ini penting untuk membuat semua kartu memiliki tinggi yang sama dalam satu baris */
+            align-items: stretch;
         }
         
         .project-card-modal {
@@ -953,8 +966,7 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            height: auto; /* Biarkan tinggi mengikuti konten */
-            min-height: auto; /* Hapus min-height tetap */
+            height: auto;
         }
         
         .project-card-modal:hover {
@@ -987,7 +999,6 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            /* Hapus semua properti height dan padding-bottom yang terlalu besar */
         }
         
         .project-body-modal h4 {
@@ -1011,7 +1022,6 @@
             padding-top: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             line-height: 1.4;
-            /* Hapus padding-bottom yang terlalu besar */
         }
         
         .projects-pagination-container {
@@ -1470,6 +1480,7 @@
             }
         }
         
+        /* ============ PERUBAHAN UTAMA: PROJECT BISA DIGESER DI MOBILE ============ */
         /* Untuk Tablet Portrait (576px - 767px) */
         @media (max-width: 767px) and (min-width: 576px) {
             .container {
@@ -1543,17 +1554,37 @@
                 }
             }
             
-            /* Projects Home untuk tablet portrait */
+            /* Projects Home untuk mobile - BISA DIGESER/SLIDE */
             .projects-grid-home {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-                margin-bottom: 40px;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 20px;
+                padding: 20px 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                margin-bottom: 30px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar {
+                height: 6px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-thumb {
+                background: var(--secondary-color);
+                border-radius: 4px;
             }
             
             .project-card-home {
-                height: auto;
-                min-height: auto;
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 260px;
             }
             
             /* Modal Projects untuk tablet portrait - 2 PROJEK PER BARIS */
@@ -1667,7 +1698,7 @@
             }
         }
         
-        /* Untuk Smartphone (≤575px) */
+        /* Untuk Smartphone (≤575px) - PROJECT BISA DIGESER */
         @media (max-width: 575px) {
             .container {
                 padding-left: 15px;
@@ -1773,17 +1804,37 @@
                 padding: 60px 0 40px;
             }
             
-            /* Projects Home untuk smartphone */
+            /* Projects Home untuk smartphone - BISA DIGESER/SLIDE */
             .projects-grid-home {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 25px;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 20px;
+                padding: 15px 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
                 margin-bottom: 30px;
             }
             
+            .projects-grid-home::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            
+            .projects-grid-home::-webkit-scrollbar-thumb {
+                background: var(--secondary-color);
+                border-radius: 4px;
+            }
+            
             .project-card-home {
-                height: auto;
-                min-height: auto;
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 250px;
             }
             
             .project-body-home {
@@ -2026,9 +2077,15 @@
                 }
             }
             
-            /* Projects Home untuk layar sangat kecil */
+            /* Projects Home untuk layar sangat kecil - TETAP BISA DIGESER */
+            .projects-grid-home {
+                gap: 15px;
+                padding: 10px 8px;
+            }
+            
             .project-card-home {
-                height: auto;
+                flex: 0 0 90%;
+                min-width: 220px;
             }
             
             .project-body-home {
@@ -2554,7 +2611,7 @@
                     "images/Projects/aniplus2.png",
                     "images/Projects/aniplus3.png"
                 ],
-                hasTallImage: true // contoh gambar tinggi
+                hasTallImage: true
             },
             { 
                 id: 3, 
@@ -2644,6 +2701,19 @@
                     "images/Projects/suratlamaran.png",
                     "images/Projects/suratlamaran2.png",
                     "images/Projects/suratlamaran3.png"
+                ],
+                hasTallImage: false
+            },
+            { 
+                id: 10, 
+                title: "Accpedia", 
+                desc: "Sebuah platform manajemen keuangan perusahaan. Dalam proyek ini, saya bertanggung jawab untuk merancang dan mengimplementasikan antarmuka pengguna yang responsif, interaktif, dan user-friendly guna meningkatkan pengalaman pengguna.", 
+                img: "images/Projects/accpedia.png", 
+                tech: "Laravel, React",
+                previewImages: [
+                    "images/Projects/accpedia.png",
+                    "images/Projects/accpedia2.png",
+                    "images/Projects/accpedia3.png"
                 ],
                 hasTallImage: false
             }
