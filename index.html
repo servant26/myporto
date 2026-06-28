@@ -16,15 +16,15 @@
         rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #00adb5;
-            --accent-color: #ff2e63;
-            --light-color: #eeeeee;
-            --dark-color: #0f0f1a;
-            --card-color: #222831;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #2b2b2b;
+            --light-color: #212529;
+            --dark-color: #f8f9fa;
+            --card-color: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s ease;
-            --glow-color: rgba(0, 173, 181, 0.8);
+            --glow-color: rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -42,6 +42,19 @@
             transition: var(--transition);
         }
 
+        /* Constrain layout container on desktop */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1170px !important;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1260px !important;
+            }
+        }
+
         h1,
         h2,
         h3,
@@ -55,7 +68,7 @@
 
         /* Navbar */
         .navbar {
-            background-color: rgba(26, 26, 46, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             box-shadow: var(--shadow);
             padding: 1rem 0;
             transition: var(--transition);
@@ -68,7 +81,7 @@
         .navbar-brand {
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--light-color) !important;
+            color: #ffffff !important;
         }
 
         .navbar-nav {
@@ -81,7 +94,7 @@
 
         .navbar-nav .nav-link {
             font-weight: 500;
-            color: var(--light-color) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
             padding: 8px 16px !important;
             transition: var(--transition);
             position: relative;
@@ -89,31 +102,36 @@
             font-size: 1.05rem;
         }
 
-        .navbar-nav .nav-link::after {
+        .navbar-nav .nav-link span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar-nav .nav-link span::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color);
-            bottom: 0;
+            background-color: #ffffff;
+            bottom: -3px;
             left: 50%;
             transform: translateX(-50%);
             transition: var(--transition);
         }
 
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
+        .navbar-nav .nav-link:hover span::after,
+        .navbar-nav .nav-link.active span::after {
+            width: 100%;
         }
 
         .navbar-nav .nav-link:hover {
-            color: var(--secondary-color) !important;
+            color: #ffffff !important;
         }
 
         /* Cover Section - TETAP SEPERTI SEMULA UNTUK DESKTOP */
         .cover-section {
-            background: linear-gradient(135deg, #0f0f1f 0%, #0a0a17 100%);
-            color: white;
+            background: linear-gradient(135deg, #e9ecef 0%, #ced4da 100%);
+            color: var(--light-color);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -185,7 +203,7 @@
             height: 320px;
             border-radius: 50%;
             object-fit: cover;
-            border: 8px solid rgba(0, 173, 181, 0.2);
+            border: 2px solid #000000;
             box-shadow: var(--shadow);
             position: relative;
             z-index: 1;
@@ -212,7 +230,7 @@
 
         .cover-subtitle {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(33, 37, 41, 0.8);
             margin-bottom: 1.5rem;
         }
 
@@ -220,7 +238,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             font-size: 1.1rem;
             line-height: 1.7;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(33, 37, 41, 0.85);
             margin-bottom: 1.5rem;
             max-width: 90%;
             font-weight: 400;
@@ -228,10 +246,11 @@
         }
 
         .getting-started-btn {
-            background-color: white;
-            color: var(--primary-color);
+            background-color: #000000;
+            color: white;
             border: none;
-            padding: 14px 65px;
+            height: 54px;
+            padding: 0 40px;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
@@ -242,11 +261,11 @@
             z-index: 1;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            margin-top: 5px;
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             letter-spacing: 0.5px;
         }
 
@@ -257,7 +276,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--secondary-color), #00d4dd);
+            background: linear-gradient(45deg, #333333, #555555);
             z-index: -1;
             transform: scaleX(0);
             transform-origin: right;
@@ -271,7 +290,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: white;
+            background-color: #000000;
             z-index: -2;
             border-radius: 10px;
         }
@@ -279,7 +298,7 @@
         .getting-started-btn:hover {
             color: white;
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 173, 181, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             letter-spacing: 0.8px;
         }
 
@@ -292,6 +311,54 @@
             transform: translateX(5px);
         }
 
+        .cv-preview-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            height: 54px;
+            padding: 0 25px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cv-preview-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cv-preview-btn:hover {
+            color: #ffffff;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .cv-preview-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
         /* Stats Styles */
         .stats-container {
             margin-top: 1.5rem;
@@ -301,7 +368,7 @@
         .stat-item {
             font-size: 0.95rem;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(33, 37, 41, 0.85);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -410,10 +477,11 @@
 
         .skill-name {
             margin-top: 10px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 500;
             text-align: center;
             color: var(--light-color);
-            opacity: 0.8;
+            opacity: 1;
             transition: var(--transition);
         }
 
@@ -496,7 +564,7 @@
             display: block;
             margin: 50px auto 0;
             background-color: var(--secondary-color);
-            color: var(--light-color);
+            color: #ffffff;
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -659,7 +727,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 173, 181, 0.8);
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             border: none;
             width: 50px;
@@ -734,19 +802,65 @@
 
         /* Modal Certificates */
         .modal-content {
-            background-color: var(--card-color);
-            color: var(--light-color);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #333333 !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             border-radius: 12px;
         }
 
         .modal-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
         }
 
-        .btn-close-white {
-            filter: invert(1) grayscale(100%) brightness(200%);
+        /* Ensure all text/paragraphs/headings in modals are white */
+        .modal-content h1,
+        .modal-content h2,
+        .modal-content h3,
+        .modal-content h4,
+        .modal-content h5,
+        .modal-content h6,
+        .modal-content p,
+        .modal-content div:not(.badge-count),
+        .modal-content span:not(.badge-count) {
+            color: #ffffff !important;
         }
+
+        /* Badges are white with black text */
+        .modal-content .badge-count {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            opacity: 1 !important;
+        }
+
+        /* Modal close button white icon */
+        .modal-content .btn-close {
+            filter: invert(1) grayscale(1) brightness(2) !important;
+        }
+
+        /* Modal filter buttons */
+        .modal-content .filter-btn {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+
+        .modal-content .filter-btn.active,
+        .modal-content .filter-btn:hover {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        /* Modal pagination numbers */
+        .modal-content .page-number {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+
+        .modal-content .page-number.active {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+
+
 
         /* ============ PERUBAHAN UTAMA: FILTER BUTTONS 8 PER BARIS & RATA TENGAH ============ */
         .filter-buttons {
@@ -901,6 +1015,12 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Skills and Projects Section Background */
+        #skills,
+        .projects-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        }
+
         /* Projects Section */
         .projects-section {
             padding: 100px 0 80px;
@@ -930,8 +1050,8 @@
 
         .project-card-home:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-            border-color: rgba(0, 173, 181, 0.2);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .project-img-container-home {
@@ -970,7 +1090,7 @@
         }
 
         .project-body-home p {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(33, 37, 41, 0.7);
             margin-bottom: 1.5rem;
             line-height: 1.5;
             flex-grow: 1;
@@ -990,7 +1110,7 @@
             display: block;
             margin: 30px auto 0;
             background-color: var(--secondary-color);
-            color: var(--light-color);
+            color: #ffffff;
             border: none;
             padding: 14px 35px;
             border-radius: 10px;
@@ -1016,10 +1136,11 @@
         }
 
         .project-card-modal {
-            background-color: var(--card-color);
+            background-color: #2a2a2a !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
@@ -1029,7 +1150,8 @@
 
         .project-card-modal:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7) !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
         }
 
         .project-img-container-modal {
@@ -1067,7 +1189,7 @@
         }
 
         .project-body-modal p {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(33, 37, 41, 0.7);
             margin-bottom: 1rem;
             line-height: 1.6;
             flex-grow: 1;
@@ -1168,14 +1290,14 @@
 
         .profile-description {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(33, 37, 41, 0.7);
             max-width: 250px;
             line-height: 1.4;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--dark-color);
+            background-color: #000000;
             color: white;
             padding: 4rem 0 2rem;
         }
@@ -1194,7 +1316,7 @@
             position: absolute;
             width: 0;
             height: 3px;
-            background-color: var(--secondary-color);
+            background-color: #ffffff;
             bottom: 0;
             left: 0;
             transition: width 0.5s ease;
@@ -1205,7 +1327,7 @@
         }
 
         .footer h3:hover {
-            color: var(--secondary-color);
+            color: #ffffff;
         }
 
         .social-icons a {
@@ -1222,7 +1344,8 @@
         }
 
         .social-icons a:hover {
-            background-color: var(--secondary-color);
+            background-color: #ffffff;
+            color: #000000;
             transform: translateY(-5px);
         }
 
@@ -1240,7 +1363,7 @@
         }
 
         .contact-info p:hover {
-            color: var(--secondary-color);
+            color: #ffffff;
             transform: translateX(5px);
         }
 
@@ -1249,7 +1372,7 @@
         }
 
         .contact-info i {
-            color: var(--secondary-color);
+            color: #ffffff;
             margin-right: 12px;
             width: 20px;
             text-align: center;
@@ -1374,11 +1497,7 @@
                 max-width: 100%;
             }
 
-            .getting-started-btn {
-                margin: 0 auto;
-                display: block;
-                width: fit-content;
-            }
+
 
             /* ============ SECTION TITLE ============ */
             .section-main-title {
@@ -1430,6 +1549,22 @@
                 flex: 0 0 calc(50% - 13px);
                 scroll-snap-align: start;
                 min-width: 280px;
+            }
+
+            /* Center title texts on tablet */
+            .section-main-title,
+            .section-simple-title {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                left: 0 !important;
+                transform: none !important;
+                width: fit-content !important;
+            }
+
+            .stats-container {
+                justify-content: center !important;
             }
 
             /* ============ MODAL PROJECTS UNTUK TABLET ============ */
@@ -1569,9 +1704,7 @@
                 text-align: center;
             }
 
-            .getting-started-btn {
-                margin: 0 auto;
-            }
+
 
             .section-main-title {
                 font-size: 2rem;
@@ -1646,6 +1779,22 @@
                 flex: 0 0 85%;
                 scroll-snap-align: start;
                 min-width: 260px;
+            }
+
+            /* Center title texts on tablet portrait */
+            .section-main-title,
+            .section-simple-title {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                left: 0 !important;
+                transform: none !important;
+                width: fit-content !important;
+            }
+
+            .stats-container {
+                justify-content: center !important;
             }
 
             /* Modal Projects untuk tablet portrait - 2 PROJEK PER BARIS */
@@ -1768,52 +1917,106 @@
 
             /* ============ COVER SECTION UNTUK SMARTPHONE ============ */
             .cover-section {
-                padding-top: 80px;
-                text-align: center;
-                min-height: 90vh;
+                padding-top: 70px !important;
+                text-align: center !important;
+                min-height: 100vh !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .typing-text {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .cover-subtitle {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
 
             .profile-img {
-                width: 200px;
-                height: 200px;
-                margin: 0 auto 25px !important;
+                width: 180px;
+                height: 180px;
+                margin: 0 auto 20px !important;
                 display: block;
             }
 
             .portfolio-description {
-                font-size: 1rem;
-                margin: 0 auto 1.5rem;
+                font-size: 0.85rem;
+                margin: 0 auto 1.2rem;
                 text-align: center;
+                line-height: 1.5;
+            }
+
+            .stats-container {
+                justify-content: center !important;
+            }
+
+            .stat-item {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                font-size: 0.8rem !important;
+                gap: 4px !important;
+            }
+
+            .stat-number {
+                font-size: 1.3rem !important;
             }
 
             .getting-started-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-                display: block;
-                width: fit-content;
-                margin: 0 auto;
+                height: 44px !important;
+                padding: 0 25px !important;
+                font-size: 0.9rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: fit-content !important;
+                margin: 0 !important;
+            }
+
+            .cv-preview-btn {
+                height: 44px !important;
+                padding: 0 20px !important;
+                font-size: 0.9rem !important;
+                border-radius: 10px !important;
+                border-width: 2px !important;
+                gap: 6px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .section {
-                padding: 60px 0 40px;
+                padding: 50px 0 35px;
             }
 
             .section-main-title {
-                font-size: 1.8rem;
-                padding-bottom: 10px;
+                font-size: 1.15rem !important;
+                padding-bottom: 8px !important;
             }
 
             .section-simple-title {
-                font-size: 1.6rem;
-                margin-bottom: 1.5rem;
+                font-size: 1.1rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            /* Timeline text optimization for Mobile */
+            .timeline-title {
+                font-size: 1.1rem !important;
+            }
+
+            .timeline-subtitle {
+                font-size: 0.9rem !important;
+            }
+
+            .timeline-body {
+                font-size: 0.8rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .timeline-skill-badge {
+                font-size: 0.7rem !important;
+                padding: 3px 8px !important;
             }
 
             .skills-container {
@@ -1832,7 +2035,7 @@
             }
 
             .skill-name {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
             .certificates-wrapper {
@@ -1946,35 +2149,61 @@
                 font-size: 0.85rem;
             }
 
-            /* Konten Section untuk smartphone */
+            /* Konten Section untuk smartphone - Horizontal Swipe Slider */
             .konten-profiles {
-                gap: 15px;
-                padding: 8px 0;
-                justify-content: space-between;
-                overflow-x: hidden;
-                flex-wrap: wrap;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                gap: 12px !important;
+                padding: 15px 10px !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: thin !important;
+                justify-content: flex-start !important;
+                margin-bottom: 20px;
+            }
+
+            .konten-profiles::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .konten-profiles::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+
+            .konten-profiles::-webkit-scrollbar-thumb {
+                background: var(--secondary-color);
+                border-radius: 4px;
             }
 
             .profile-item {
-                width: calc(33.333% - 10px);
-                flex: 0 0 auto;
+                flex: 0 0 85% !important;
+                scroll-snap-align: start !important;
+                min-width: 250px !important;
+                background-color: var(--card-color) !important;
+                padding: 20px !important;
+                border-radius: 12px !important;
+                box-shadow: var(--shadow) !important;
+                border: 1px solid rgba(0, 0, 0, 0.05) !important;
             }
 
             .profile-circle {
-                width: 90px;
-                height: 90px;
+                width: 110px;
+                height: 110px;
             }
 
             .profile-label {
-                font-size: 0.85rem;
-                margin-top: 8px;
-                margin-bottom: 4px;
+                font-size: 1.1rem;
+                margin-top: 10px;
+                margin-bottom: 6px;
             }
 
             .profile-description {
-                font-size: 0.4rem;
+                font-size: 0.9rem;
                 max-width: 100%;
-                line-height: 1.2;
+                line-height: 1.5;
             }
 
             .certificates-grid {
@@ -2068,12 +2297,21 @@
             }
 
             .navbar-nav {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
                 margin-right: 0;
-                margin-top: 10px;
+                margin-top: 25px !important;
+                margin-bottom: 25px !important;
+                padding: 20px 0 !important;
+                gap: 15px 0;
             }
 
             .navbar-nav .nav-item {
-                margin: 5px 0;
+                flex: 0 0 50% !important;
+                text-align: center !important;
+                margin: 0 !important;
             }
 
             .navbar-nav .nav-link {
@@ -2106,13 +2344,50 @@
         /* Untuk iPhone SE/Perangkat Sangat Kecil (≤375px) */
         @media (max-width: 375px) {
             .typing-text {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
 
             .profile-img {
-                width: 180px;
-                height: 180px;
-                margin: 0 auto 25px !important;
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 20px !important;
+            }
+
+            .portfolio-description {
+                font-size: 0.75rem;
+            }
+
+            .stat-item {
+                font-size: 0.72rem !important;
+                gap: 2px !important;
+            }
+
+            .stat-number {
+                font-size: 1.1rem !important;
+            }
+
+            .section-main-title {
+                font-size: 1.05rem !important;
+            }
+
+            .section-simple-title {
+                font-size: 1.0rem !important;
+            }
+
+            .timeline-title {
+                font-size: 1rem !important;
+            }
+
+            .timeline-subtitle {
+                font-size: 0.8rem !important;
+            }
+
+            .timeline-body {
+                font-size: 0.75rem !important;
+            }
+
+            .timeline-skill-badge {
+                font-size: 0.65rem !important;
             }
 
             .skill-item {
@@ -2164,14 +2439,13 @@
                 height: auto;
             }
 
-            /* Konten Section untuk layar sangat kecil */
+            /* Konten Section untuk layar sangat kecil - Inherit tumpukan vertikal */
             .konten-profiles {
-                gap: 10px;
-                padding: 5px 0;
+                gap: 25px;
             }
 
             .profile-item {
-                width: calc(33.333% - 7px);
+                width: 100%;
             }
 
             .profile-circle {
@@ -2180,14 +2454,14 @@
             }
 
             .profile-label {
-                font-size: 0.8rem;
+                font-size: 1rem;
                 margin-top: 6px;
                 margin-bottom: 3px;
             }
 
             .profile-description {
-                font-size: 0.65rem;
-                line-height: 1.1;
+                font-size: 0.85rem;
+                line-height: 1.4;
             }
 
             .certificate-modal-item {
@@ -2212,13 +2486,36 @@
         /* Animasi Scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Custom Premium Modal Animation */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9) translateY(-30px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        }
+
+        .modal.show .modal-dialog {
+            transform: scale(1) translateY(0) !important;
+            opacity: 1 !important;
+        }
+
+        /* Backdrop Blur Effect */
+        .modal-backdrop {
+            backdrop-filter: blur(0px);
+            transition: backdrop-filter 0.3s ease, opacity 0.3s ease !important;
+        }
+
+        .modal-backdrop.show {
+            backdrop-filter: blur(6px);
+            background-color: rgba(0, 0, 0, 0.6) !important;
         }
 
         .img-placeholder {
@@ -2260,6 +2557,7 @@
                 flex: 0 0 100%;
                 max-width: 100%;
                 margin-bottom: 50px;
+                padding: 0 15px;
             }
 
             .timeline-col:last-child {
@@ -2283,8 +2581,6 @@
         .timeline-wrapper {
             position: relative;
             padding-left: 35px;
-            max-height: 600px;
-            overflow-y: auto;
             padding-right: 15px;
         }
 
@@ -2314,7 +2610,7 @@
             top: 0;
             bottom: -40px;
             width: 3px;
-            background-color: rgba(0, 173, 181, 0.3);
+            background-color: rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
 
@@ -2352,7 +2648,7 @@
         }
 
         .timeline-card:hover {
-            border-color: rgba(0, 173, 181, 0.4);
+            border-color: rgba(0, 0, 0, 0.2);
         }
 
         .timeline-date {
@@ -2380,7 +2676,7 @@
 
         .timeline-meta {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(33, 37, 41, 0.6);
             margin-bottom: 15px;
             display: flex;
             flex-wrap: wrap;
@@ -2395,7 +2691,7 @@
 
         .timeline-body {
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(33, 37, 41, 0.8);
             line-height: 1.6;
         }
 
@@ -2423,8 +2719,9 @@
         }
 
         .timeline-skill-badge {
-            background-color: rgba(0, 173, 181, 0.1);
-            color: var(--secondary-color);
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #e0e0e0;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -2434,14 +2731,15 @@
         }
 
         .timeline-skill-badge:hover {
-            background-color: rgba(0, 173, 181, 0.25);
+            background-color: #000000;
             color: #fff;
+            border-color: #000000;
         }
 
         .show-detail-btn {
             background: transparent !important;
-            border: 1px solid rgba(0, 173, 181, 0.4) !important;
-            color: var(--secondary-color) !important;
+            border: 1px solid rgba(0, 0, 0, 0.15) !important;
+            color: #000000 !important;
             border-radius: 30px !important;
             padding: 8px 16px !important;
             font-weight: 500 !important;
@@ -2451,9 +2749,9 @@
         }
 
         .show-detail-btn:hover {
-            background-color: rgba(0, 173, 181, 0.1) !important;
-            border-color: var(--secondary-color) !important;
-            color: var(--secondary-color) !important;
+            background-color: rgba(0, 0, 0, 0.05) !important;
+            border-color: #000000 !important;
+            color: #000000 !important;
         }
 
         .show-detail-btn:active {
@@ -2464,7 +2762,7 @@
         .about-modal-body {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(33, 37, 41, 0.9);
         }
 
         .about-modal-highlight {
@@ -2478,7 +2776,7 @@
         }
 
         .media-detail-img-container {
-            background-color: #0f0f1a;
+            background-color: #f8f9fa;
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
             overflow: hidden;
@@ -2509,22 +2807,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#home"><span>Home</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
+                        <a class="nav-link" href="#resume"><span>Resume</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#resume">Resume</a>
+                        <a class="nav-link" href="#skills"><span>Skills</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#certificates">Certificates</a>
+                        <a class="nav-link" href="#certificates"><span>Certificates</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
+                        <a class="nav-link" href="#projects"><span>Projects</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#konten">Contents</a>
+                        <a class="nav-link" href="#konten"><span>Contents</span></a>
                     </li>
                 </ul>
             </div>
@@ -2532,7 +2830,7 @@
     </nav>
 
     <!-- Cover Section -->
-    <section id="home" class="cover-section">
+    <section id="home" class="cover-section fade-in">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1 order-2">
@@ -2540,7 +2838,7 @@
                         <h1 class="typing-text">Ali Khatami</h1>
                     </div>
                     <p class="portfolio-description">
-                        Fullstack Web Developer | Creator of &#64;Cartoonesia
+                        Fullstack Web Developer | Creator of @Cartoonesia
                     </p>
                     <div class="stats-container mb-4 d-flex gap-4">
                         <div class="stat-item">
@@ -2550,9 +2848,15 @@
                             <span class="stat-number" id="statsCertificates">0</span> Programming Certificates
                         </div>
                     </div>
-                    <button class="getting-started-btn" data-bs-toggle="modal" data-bs-target="#aboutMeModal">
-                        About Me
-                    </button>
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start gap-2"
+                        style="margin-top: 5px;">
+                        <button class="getting-started-btn" data-bs-toggle="modal" data-bs-target="#aboutMeModal">
+                            About Me
+                        </button>
+                        <a href="images/resume.pdf" target="_blank" class="cv-preview-btn" title="Lihat CV / Resume">
+                            <i class="far fa-file-alt"></i><span>CV</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-6 text-center order-lg-2 order-1 mb-4 mb-lg-0">
                     <img src="images/profile.jpg" alt="Foto Profil" class="profile-img">
@@ -2562,10 +2866,9 @@
     </section>
 
     <!-- Resume Section (Experience & Education Timeline) -->
-    <section id="resume" class="timeline-section">
+    <section id="resume" class="timeline-section fade-in">
         <div class="container">
-            <h2 class="section-main-title">Experience &amp; Education</h2><br><br>
-
+            <h2 class="section-main-title">Experience &amp; Education</h2><br>
             <div class="timeline-container">
                 <div class="timeline-row">
 
@@ -2575,69 +2878,28 @@
                             <i class="fas fa-briefcase"></i> Experience
                         </h3>
                         <div class="timeline-wrapper">
-
-                            <!-- Experience Item 1 (Oldest) -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-card">
-                                    <div class="timeline-date">
-                                        <i class="far fa-calendar-alt"></i> 2021 - 2023 &middot; 2 yrs
-                                    </div>
-                                    <h4 class="timeline-title">Inforsa</h4>
-                                    <div class="timeline-subtitle">Himpunan Mahasiswa Sistem Informasi</div>
-                                    <div class="timeline-meta">
-                                        <span><i class="fas fa-users"></i> Anggota Organisasi</span>
-                                    </div>
-                                    <div class="timeline-body">
-                                        Aktif berkontribusi sebagai pengurus dalam divisi Informasi dan Komunikasi guna
-                                        merancang publikasi konten kreatif, mengelola media sosial resmi himpunan, serta
-                                        mendukung pelaksanaan program kerja kemahasiswaan secara kolaboratif.
-                                    </div>
-                                    <div class="timeline-skills">
-                                        <span class="timeline-skill-badge">Desain Grafis</span>
-                                        <span class="timeline-skill-badge">Creative Content</span>
-                                        <span class="timeline-skill-badge">Social Media Management</span>
-                                        <span class="timeline-skill-badge">Teamwork</span>
-                                    </div>
-                                    <button class="btn btn-outline-info btn-sm mt-3 w-100 show-detail-btn"
-                                        data-img="images/Contents/Cartoonesia.png"
-                                        data-title="Pengalaman Organisasi Inforsa"
-                                        data-subtitle="Informasi dan Komunikasi (Inforsa)"
-                                        data-desc="Berperan aktif dalam pembuatan publikasi visual kegiatan kemahasiswaan, dokumentasi event penting, serta merancang infografis edukatif seputar teknologi informasi untuk disebarluaskan melalui media sosial resmi himpunan.">
-                                        View Documentation
-                                    </button>
-                                </div>
-                            </div>
-
                             <!-- Experience Item 2 -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
                                     <div class="timeline-date">
-                                        <i class="far fa-calendar-alt"></i> Sep 2024 - Nov 2024 &middot; 3 mos
+                                        <i class="far fa-calendar-alt"></i> Sep 2024 - Nov 2024 &middot; 3 bln
                                     </div>
                                     <h4 class="timeline-title">Bidang Layanan Umum</h4>
-                                    <div class="timeline-subtitle">Instansi Layanan Publik</div>
-                                    <div class="timeline-meta">
-                                        <span><i class="fas fa-user-friends"></i> Apprenticeship</span>
-                                    </div>
+                                    <div class="timeline-subtitle">Dinas Perpustakaan dan Kearsipan Samarinda &middot;
+                                        Magang</div>
+
                                     <div class="timeline-body">
-                                        Mengelola administrasi harian perpustakaan, membantu pelayanan pengunjung secara
-                                        langsung, serta berpartisipasi dalam proses digitalisasi arsip daerah untuk
-                                        meningkatkan efisiensi layanan publik.
+                                        Mengelola administrasi harian, pelayanan publik, dan pengarsipan data
+                                        perpustakaan, serta merancang website manajemen keuangan internal sekaligus
+                                        membuat konten video promosi perpustakaan.
                                     </div>
                                     <div class="timeline-skills">
-                                        <span class="timeline-skill-badge">Microsoft Excel &amp; Web</span>
-                                        <span class="timeline-skill-badge">Canva</span>
+                                        <span class="timeline-skill-badge">Microsoft Excel</span>
+                                        <span class="timeline-skill-badge">Canva for Design</span>
                                         <span class="timeline-skill-badge">Fullstack Web Developer</span>
                                         <span class="timeline-skill-badge">Resepsionis</span>
                                     </div>
-                                    <button class="btn btn-outline-info btn-sm mt-3 w-100 show-detail-btn"
-                                        data-img="images/Projects/accpedia.png" data-title="Accpedia - Keuangan"
-                                        data-subtitle="Instansi Layanan Publik"
-                                        data-desc="Merancang website manajemen keuangan Accpedia untuk merekam kas masuk dan kas keluar secara digital, responsif, dan mudah digunakan, serta membantu pengelolaan video promosi kunjungan perpustakaan.">
-                                        View Documentation
-                                    </button>
                                 </div>
                             </div>
 
@@ -2646,17 +2908,15 @@
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
                                     <div class="timeline-date">
-                                        <i class="far fa-calendar-alt"></i> Feb 2026 - Present &middot; 5 mos
+                                        <i class="far fa-calendar-alt"></i> Feb 2026 - Saat ini &middot; 5 bln
                                     </div>
                                     <h4 class="timeline-title">Frontend Developer</h4>
-                                    <div class="timeline-subtitle">Software House / IT Consultant</div>
-                                    <div class="timeline-meta">
-                                        <span><i class="fas fa-laptop-house"></i> On-site &middot; Full-time</span>
-                                    </div>
+                                    <div class="timeline-subtitle">PT. DUTA META GRAHA &middot; Purnawaktu</div>
+
                                     <div class="timeline-body">
-                                        Merancang antarmuka aplikasi web yang responsif, interaktif, dan modern
-                                        menggunakan teknologi frontend terkini, serta berkolaborasi erat dengan tim
-                                        backend untuk integrasi API yang optimal.
+                                        Bekerja sebagai Frontend Developer di PT Duta Meta Graha untuk proyek
+                                        KlikReservasi, dengan fokus melakukan slicing dan implementasi antarmuka,
+                                        optimasi sistem, serta turut membantu pengembangan di sisi back-end.
                                     </div>
                                     <div class="timeline-skills">
                                         <span class="timeline-skill-badge">React JS</span>
@@ -2664,12 +2924,6 @@
                                         <span class="timeline-skill-badge">GIT</span>
                                         <span class="timeline-skill-badge">Tailwind</span>
                                     </div>
-                                    <button class="btn btn-outline-info btn-sm mt-3 w-100 show-detail-btn"
-                                        data-img="images/Projects/klikreservasi.png" data-title="Frontend Development"
-                                        data-subtitle="Software House / IT Consultant"
-                                        data-desc="Bertanggung jawab dalam merancang antarmuka web yang responsif, modern, dan user-friendly serta turut membantu integrasi dengan Back-End agar seluruh fitur berjalan dengan optimal.">
-                                        View Documentation
-                                    </button>
                                 </div>
                             </div>
 
@@ -2690,28 +2944,25 @@
                                     <div class="timeline-date">
                                         <i class="far fa-calendar-alt"></i> Jul 2018 &ndash; Jun 2021
                                     </div>
-                                    <h4 class="timeline-title">Rekayasa Perangkat Lunak</h4>
-                                    <div class="timeline-subtitle">Sekolah Menengah Kejuruan</div>
+                                    <h4 class="timeline-title">SMKN 1 Tanah Grogot</h4>
+                                    <div class="timeline-subtitle">Rekayasa Perangkat Lunak</div>
+                                    <div class="timeline-meta">
+                                        <span><strong>Grade:</strong> 89.00</span>
+                                    </div>
                                     <div class="timeline-body">
-                                        Mempelajari dasar-dasar algoritma pemrograman, konsep perancangan database
-                                        relasional, serta dasar-dasar pengembangan aplikasi web menggunakan bahasa PHP
-                                        dan database MySQL.
+                                        Mendalami dasar pemrograman, basis data relasional, dan pengembangan web
+                                        berbasis PHP/HTML/CSS yang diimplementasikan langsung pada proyek Uji Kompetensi
+                                        Keahlian berupa aplikasi pengaduan masyarakat berbasis Laravel.
                                     </div>
                                     <div class="timeline-skills">
-                                        <span class="timeline-skill-badge">C++</span>
-                                        <span class="timeline-skill-badge">Java</span>
                                         <span class="timeline-skill-badge">HTML</span>
                                         <span class="timeline-skill-badge">CSS</span>
-                                        <span class="timeline-skill-badge">JavaScript</span>
+                                        <span class="timeline-skill-badge">Javascript</span>
                                         <span class="timeline-skill-badge">PHP</span>
                                         <span class="timeline-skill-badge">MySQL</span>
+                                        <span class="timeline-skill-badge">C++</span>
+                                        <span class="timeline-skill-badge">Java</span>
                                     </div>
-                                    <button class="btn btn-outline-info btn-sm mt-3 w-100 show-detail-btn"
-                                        data-img="images/Projects/suratlamaran.png" data-title="Generator Surat Lamaran"
-                                        data-subtitle="Sekolah Menengah Kejuruan"
-                                        data-desc="Mengembangkan website generator surat lamaran kerja berbasis web untuk membantu menyusun surat lamaran secara otomatis, cepat, dan terstruktur.">
-                                        View Documentation
-                                    </button>
                                 </div>
                             </div>
 
@@ -2722,27 +2973,32 @@
                                     <div class="timeline-date">
                                         <i class="far fa-calendar-alt"></i> Jan 2021 &ndash; Oct 2025
                                     </div>
-                                    <h4 class="timeline-title">Bachelor of Information System</h4>
-                                    <div class="timeline-subtitle">Perguruan Tinggi Negeri</div>
+                                    <h4 class="timeline-title">Universitas Mulawarman</h4>
+                                    <div class="timeline-subtitle">Bachelor of Information System</div>
+                                    <div class="timeline-meta">
+                                        <span><strong>Grade:</strong> 3.87</span>
+                                    </div>
                                     <div class="timeline-body">
-                                        Fokus mendalami pemrograman berorientasi objek (Python/Java), arsitektur web
-                                        fullstack, analisis data terapan, serta konsep keamanan jaringan dan sistem
-                                        informasi perusahaan.
+                                        Mendalami pemrograman Python/Java, web development, analisis data, dan dasar
+                                        keamanan jaringan melalui pengerjaan berbagai proyek akademik menggunakan VS
+                                        Code, XAMPP, serta Canva.
                                     </div>
                                     <div class="timeline-skills">
                                         <span class="timeline-skill-badge">C++</span>
                                         <span class="timeline-skill-badge">Python</span>
                                         <span class="timeline-skill-badge">Java</span>
-                                        <span class="timeline-skill-badge">Cybersecurity</span>
                                         <span class="timeline-skill-badge">Data Analyst</span>
-                                        <span class="timeline-skill-badge">Fullstack Web Developer</span>
+                                        <span class="timeline-skill-badge">HTML</span>
+                                        <span class="timeline-skill-badge">CSS</span>
+                                        <span class="timeline-skill-badge">Bootstrap</span>
+                                        <span class="timeline-skill-badge">Javascript</span>
+                                        <span class="timeline-skill-badge">PHP</span>
+                                        <span class="timeline-skill-badge">MySQL</span>
+                                        <span class="timeline-skill-badge">GIT</span>
+                                        <span class="timeline-skill-badge">Laravel</span>
+                                        <span class="timeline-skill-badge">Cybersecurity</span>
+                                        <span class="timeline-skill-badge">Network</span>
                                     </div>
-                                    <button class="btn btn-outline-info btn-sm mt-3 w-100 show-detail-btn"
-                                        data-img="images/Projects/docta.png" data-title="Docta ID - AI Health"
-                                        data-subtitle="Perguruan Tinggi Negeri"
-                                        data-desc="Mengembangkan aplikasi Docta ID sebagai platform konsultasi kesehatan interaktif menggunakan integrasi API dari Gemini AI untuk menjawab pertanyaan medis dasar secara real-time.">
-                                        View Documentation
-                                    </button>
                                 </div>
                             </div>
 
@@ -2755,55 +3011,59 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section fade-in">
         <div class="container">
             <h2 class="section-main-title">Skills</h2>
             <div class="skills-container">
 
                 <!-- Frontend Basic -->
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"
-                        class="skill-logo">
+                    <img src="images/Skills/html.svg" alt="HTML" class="skill-logo">
                     <span class="skill-name">HTML</span>
                 </div>
 
                 <!-- Styling -->
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"
-                        class="skill-logo">
+                    <img src="images/Skills/css.svg" alt="CSS" class="skill-logo">
                     <span class="skill-name">CSS</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                        alt="Bootstrap" class="skill-logo">
+                    <img src="images/Skills/bootstrap.svg" alt="Bootstrap" class="skill-logo">
                     <span class="skill-name">Bootstrap</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
-                        alt="Tailwind" class="skill-logo">
+                    <img src="images/Skills/tailwind.svg" alt="Tailwind" class="skill-logo">
                     <span class="skill-name">Tailwind</span>
                 </div>
 
                 <!-- Backend & Framework -->
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
-                        class="skill-logo">
+                    <img src="images/Skills/php.svg" alt="PHP" class="skill-logo">
                     <span class="skill-name">PHP</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.png" alt="MySQL"
-                        class="skill-logo">
+                    <img src="images/Skills/mysql.png" alt="MySQL" class="skill-logo">
                     <span class="skill-name">MySQL</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWfitrjP8RaSyij0rDzOFvzl92--bwK-uGsw&s"
-                        alt="Laravel" class="skill-logo">
+                    <img src="images/Skills/laravel.png" alt="Laravel" class="skill-logo">
                     <span class="skill-name">Laravel</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
-                        class="skill-logo">
+                    <img src="images/Skills/react.svg" alt="React" class="skill-logo">
                     <span class="skill-name">React</span>
+                </div>
+                <div class="skill-item">
+                    <img src="images/Skills/git.svg" alt="Git" class="skill-logo">
+                    <span class="skill-name">Git</span>
+                </div>
+                <div class="skill-item">
+                    <img src="images/Skills/capcut.svg" alt="Capcut" class="skill-logo">
+                    <span class="skill-name">Capcut</span>
+                </div>
+                <div class="skill-item">
+                    <img src="images/Skills/canva.svg" alt="Canva" class="skill-logo">
+                    <span class="skill-name">Canva</span>
                 </div>
 
 
@@ -2813,7 +3073,7 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="section certificates-section">
+    <section id="certificates" class="section certificates-section fade-in">
         <div class="container">
             <h2 class="section-main-title">Certificates</h2><br>
             <div class="certificates-wrapper">
@@ -2873,7 +3133,7 @@
     </div>
 
     <!-- Projects Section - HOME PAGE -->
-    <section id="projects" class="section projects-section certificates-section">
+    <section id="projects" class="section projects-section certificates-section fade-in">
         <div class="container">
             <h2 class="section-main-title">Projects</h2><br><br>
             <div class="projects-grid-home">
@@ -2919,7 +3179,7 @@
     </section>
 
     <!-- Konten Section -->
-    <section id="konten" class="section konten-section">
+    <section id="konten" class="section konten-section fade-in">
         <div class="container">
             <h2 class="section-main-title">My Contents</h2><br><br>
             <div class="konten-profiles">
@@ -2966,18 +3226,19 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4 fade-in">
                     <h3>Social Media</h3>
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/ali-khatami-a13b48220/" target="_blank"><i
                                 class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/servant26" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://gitlab.com/servant26" target="_blank"><i class="fab fa-gitlab"></i></a>
                         <a href="https://www.instagram.com/srvant07/" target="_blank"><i
                                 class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright fade-in">
                 <p>&copy; <span id="currentYear"></span> Ali Khatami. All rights reserved.</p>
             </div>
         </div>
@@ -2990,8 +3251,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="certificatesModalLabel">Certificates</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="filter-buttons" id="filterButtonsContainer">
@@ -3020,8 +3280,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="projectsModalLabel">Projects</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="projects-grid-modal" id="allProjects">
@@ -3045,15 +3304,12 @@
     <div class="modal fade" id="aboutMeModal" tabindex="-1" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="aboutMeModalLabel"><i
-                            class="fas fa-user-circle text-info me-2"></i>About Me</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                <div class="modal-header" style="border-bottom: none !important; padding-bottom: 0 !important;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body about-modal-body text-center py-4">
-                    <img src="images/profile.jpg" alt="Ali Khatami" class="rounded-circle border border-info mb-4"
-                        style="width: 130px; height: 130px; object-fit: cover; box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);">
+                <div class="modal-body about-modal-body text-center pt-0 pb-4">
+                    <img src="images/profile.jpg" alt="Ali Khatami" class="rounded-circle mb-4"
+                        style="width: 130px; height: 130px; object-fit: cover; border: 2px solid #000000; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
                     <h4 class="mb-3">Ali Khatami</h4>
                     <p class="px-3" style="text-align: justify; font-size: 0.95rem;">
                         Lulusan S1 Sistem Informasi yang memiliki passion tinggi di bidang programming dan memiliki
@@ -3075,8 +3331,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="mediaDetailModalLabel"><i
                             class="fas fa-info-circle text-info me-2"></i>Detail</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
                     <div class="row g-0">
@@ -3086,10 +3341,11 @@
                         </div>
                         <div class="col-md-6 p-4 d-flex flex-column justify-content-between">
                             <div>
-                                <h4 id="mediaDetailTitle" class="text-white mb-1">Title</h4>
-                                <h6 id="mediaDetailSubtitle" class="text-info mb-3">Subtitle</h6>
+                                <h4 id="mediaDetailTitle" class="mb-1" style="color: var(--light-color);">Title</h4>
+                                <h6 id="mediaDetailSubtitle" class="mb-3" style="color: var(--secondary-color);">
+                                    Subtitle</h6>
                                 <p id="mediaDetailDesc" class="text-light-50"
-                                    style="font-size: 0.9rem; line-height: 1.6; text-align: justify; color: rgba(255,255,255,0.75);">
+                                    style="font-size: 0.9rem; line-height: 1.6; text-align: justify; color: rgba(33,37,41,0.75);">
                                     Description...</p>
                             </div>
                             <div class="mt-4 text-end">
@@ -3876,22 +4132,36 @@
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
             function updateActiveNavLink() {
-                let scrollY = window.scrollY + 100;
+                let scrollY = window.scrollY + 120; // offset for nav height
+                let activeSectionId = null;
 
                 sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${sectionId}`) {
-                                link.classList.add('active');
-                            }
-                        });
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        activeSectionId = section.getAttribute('id');
                     }
                 });
+
+                // Fallback: if we are at the very top of the page, default to home
+                if (window.scrollY < 50) {
+                    activeSectionId = 'home';
+                }
+
+                // Fallback: if we are scrolled to the very bottom, default to the last section (konten)
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    activeSectionId = 'konten';
+                }
+
+                if (activeSectionId) {
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${activeSectionId}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
             }
 
             window.addEventListener('scroll', updateActiveNavLink);
@@ -3920,11 +4190,12 @@
             const fadeElements = document.querySelectorAll('.fade-in');
 
             const fadeInOnScroll = () => {
+                const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
                 fadeElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const elementVisible = 150;
 
-                    if (elementTop < window.innerHeight - elementVisible) {
+                    if (elementTop < window.innerHeight - elementVisible || scrolledToBottom) {
                         element.classList.add('visible');
                     }
                 });
@@ -3936,11 +4207,11 @@
             window.addEventListener('scroll', () => {
                 const navbar = document.querySelector('.navbar');
                 if (window.scrollY > 50) {
-                    navbar.style.backgroundColor = 'rgba(26, 26, 46, 0.98)';
-                    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+                    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
+                    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.5)';
                 } else {
-                    navbar.style.backgroundColor = 'rgba(26, 26, 46, 0.95)';
-                    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
                 }
 
                 // Update active nav link saat scroll
